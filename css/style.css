@@ -1,0 +1,286 @@
+/* Google One Token Processor Extension - Stylesheet (v3.5.7 - Toast Notifications) */
+
+/* **REMOVED** Old Clipboard Popup Styles */
+
+/* Toast Notification Styles */
+#g1tp-toast-container {
+  position: fixed;
+  bottom: 15px;
+  left: 15px;
+  z-index: 2147483647; /* Ensure it's above most elements */
+  display: flex;
+  flex-direction: column-reverse; /* New toasts appear above old ones */
+  gap: 10px; /* Spacing between toasts */
+  max-width: 320px;
+}
+
+.g1tp-toast-notification {
+  background-color: #323232; /* Default dark grey */
+  color: #f1f1f1;
+  padding: 12px 18px;
+  border-radius: 6px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  line-height: 1.5;
+  white-space: normal;
+  opacity: 0.95;
+  cursor: pointer; /* Indicate clickable for dismissal */
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transform: translateY(0);
+}
+
+/* Type-specific styles */
+.g1tp-toast-success {
+  background-color: #28a745; /* Green */
+  color: white;
+}
+
+.g1tp-toast-error {
+  background-color: #dc3545; /* Red */
+  color: white;
+}
+
+.g1tp-toast-info {
+  background-color: #17a2b8; /* Teal */
+  color: white;
+}
+
+/* Fade-out animation */
+.g1tp-toast-fade-out {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+
+/* Panel Styles (Middle-Right Default Position) */
+#googleOneTokenPanel {
+  position: fixed;
+  /* Default position set by JS: top: 50%, right: 20px, transform: translateY(-50%) */
+  width: 480px;
+  max-width: 85vw;
+  max-height: 85vh;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: 2147483646; /* Lower than toasts */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+}
+
+#googleOneTokenPanel .g1tp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  cursor: move;
+  user-select: none;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #e0e0e0;
+  flex-shrink: 0;
+}
+
+#googleOneTokenPanel h2 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+}
+
+#googleOneTokenPanel .g1tp-close-button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 4px 9px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 11px;
+  line-height: 1;
+}
+
+#googleOneTokenPanel .g1tp-close-button:hover {
+  background-color: #c0392b;
+}
+
+#googleOneTokenPanel .g1tp-content-area {
+  padding: 15px;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+#googleOneTokenPanel label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  font-size: 13px;
+  color: #555;
+}
+
+#googleOneTokenPanel input[type="text"] {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  font-size: 13px;
+}
+
+#googleOneTokenPanel input[type="text"]:focus {
+  border-color: #3498db;
+  outline: 0;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+#googleOneTokenPanel .g1tp-section {
+  margin-bottom: 18px;
+}
+
+#googleOneTokenPanel .g1tp-section-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+/* Options Layout (Flexbox Wrap) */
+#googleOneTokenPanel .g1tp-options-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+}
+
+#googleOneTokenPanel .g1tp-option-column {
+  background-color: #f9f9f9;
+  border: 1px solid #e5e5e5;
+  border-radius: 5px;
+  padding: 10px;
+  flex: 1 1 180px;
+  min-width: 160px;
+}
+
+#googleOneTokenPanel .g1tp-column-title {
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-align: center;
+  background-color: #eee;
+  padding: 4px;
+  border-radius: 3px;
+  color: #555;
+}
+
+#googleOneTokenPanel .g1tp-option-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  position: relative;
+  min-height: 22px;
+}
+
+#googleOneTokenPanel input[type="radio"] {
+  margin-right: 6px;
+  flex-shrink: 0;
+}
+
+#googleOneTokenPanel .g1tp-option-label {
+  font-size: 12px;
+  flex-grow: 1;
+  margin-bottom: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: calc(100% - 80px);
+  cursor: default;
+}
+
+#googleOneTokenPanel .g1tp-action-buttons {
+  display: none;
+  margin-left: auto;
+  padding-left: 5px;
+  flex-shrink: 0;
+}
+
+#googleOneTokenPanel .g1tp-action-button {
+  border: none;
+  padding: 3px 7px;
+  border-radius: 3px;
+  font-size: 10px;
+  cursor: pointer;
+  margin-left: 4px;
+  color: white;
+}
+
+#googleOneTokenPanel .g1tp-copy-button {
+  background-color: #5dade2;
+}
+#googleOneTokenPanel .g1tp-copy-button:hover {
+  background-color: #3498db;
+}
+
+#googleOneTokenPanel .g1tp-open-button {
+  background-color: #58d68d;
+}
+#googleOneTokenPanel .g1tp-open-button:hover {
+  background-color: #2ecc71;
+}
+
+#googleOneTokenPanel .g1tp-cpercent-options {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+#googleOneTokenPanel .g1tp-cpercent-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+#googleOneTokenPanel .g1tp-cpercent-label {
+  font-size: 12px;
+  margin-bottom: 0;
+  margin-left: 5px;
+}
+
+#googleOneTokenPanel .g1tp-error-message {
+  background-color: #fadedb;
+  color: #a94442;
+  padding: 10px 15px;
+  border-radius: 4px;
+  margin: 0 0 15px 0;
+  font-size: 13px;
+  display: none;
+  border: 1px solid #ebccd1;
+}
+
+/* Footer Styles (Integrated Status) */
+#googleOneTokenPanel .g1tp-footer {
+  padding: 8px 15px;
+  border-top: 1px solid #e0e0e0;
+  background-color: #f5f5f5;
+  flex-shrink: 0;
+  font-size: 11px;
+  color: #555;
+  line-height: 1.4;
+}
+
+#googleOneTokenPanel .g1tp-footer-status-line {
+  margin: 2px 0;
+  text-align: left;
+}
+
+#googleOneTokenPanel .g1tp-footer-status-line b {
+  color: #333;
+  font-weight: 600;
+}
+
